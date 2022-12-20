@@ -1,6 +1,12 @@
-<?php session_start();?>
-<?php include 'database.php'?>
+<?php session_start(); ?>
+<?php include 'database.php' ?>
 <?php
+
+$query = "SELECT * FROM `questions`";
+$result = $mysqli->query($query) or die($mysqli->error . __LINE__);
+
+$queryChoice = "SELECT * FROM `choices` WHERE is_correct = 1";
+$choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
 
 
@@ -21,15 +27,49 @@
         </div>
     </header>
     <hr>
-  
+
     <main>
         <div class="container">
             <form action="index.php" method="post">
-            <h2>Road Rules Test is over</h2> <!-- difficulty type(Easy, Medium, Hard) should be dynamic  -->
-            <p>Final Score: <?php echo $_SESSION['score'];?></p>
-            <input type="submit" name="proceed" value="Proceed" >
+                <h2>Road Rules Test is over</h2> <!-- difficulty type(Easy, Medium, Hard) should be dynamic  -->
+                <p>Final Score:
+                    <?php echo $_SESSION['score']; ?>
+                </p>
+                <table>
+
+
+                    <?php while ($questions = $result->fetch_assoc() AND $answers = $choices->fetch_assoc()): ?>
+                    <tr>
+                        <td>
+                            <p>
+                                <?php echo $questions['question_number'] . "." . " " . $questions['text'] . " " . $answers['text']; ?>
+                            </p>
+                        </td>
+
+                        
+                        
+
+                    </tr>
+                    <?php endwhile; ?>
+
+
+
+                    <?php while ($answers = $choices->fetch_assoc()): ?>
+                    <tr>
+                        <td>
+                            <p>
+                                <?php echo $answers['text'] ?>
+                            </p>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+
+
+
+                </table>
+                <input type="submit" name="proceed" value="Proceed">
             </form>
-           
+
 
         </div>
     </main>
@@ -43,4 +83,3 @@
 </body>
 
 </html>
-
