@@ -54,15 +54,7 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
 
 
-                    <?php while ($answers = $choices->fetch_assoc()): ?>
-                    <tr>
-                        <td>
-                            <p>
-                                <?php echo $answers['text'] ?>
-                            </p>
-                        </td>
-                    </tr>
-                    <?php endwhile; ?>
+                   
 
 
 
