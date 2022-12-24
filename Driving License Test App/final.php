@@ -2,10 +2,10 @@
 <?php include 'database.php' ?>
 <?php
 
-$query = "SELECT * FROM `questions`";
+$query = "SELECT * FROM `easyquestions`";
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
-$queryChoice = "SELECT * FROM `choices` WHERE is_correct = 1";
+$queryChoice = "SELECT * FROM `easychoices` WHERE is_correct = 1";
 $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
 

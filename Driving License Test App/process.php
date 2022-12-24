@@ -20,7 +20,7 @@ if ($_POST) {
  *   Get total question
  */
 
-$query = "SELECT * FROM `questions`";
+$query = "SELECT * FROM `easyquestions`";
 $results = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $total = $results->num_rows;
 
@@ -28,7 +28,7 @@ $total = $results->num_rows;
  *   Get correct choice
  */
 
-$query = "SELECT * FROM `choices` WHERE question_number = $Qnumber AND is_correct = 1";
+$query = "SELECT * FROM `easychoices` WHERE question_number = $Qnumber AND is_correct = 1";
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
 $row = $result->fetch_assoc();

@@ -5,7 +5,7 @@
 /*
  *Get the total number of questions
  */
-$query = "SELECT * FROM questions";
+$query = "SELECT * FROM easyquestions";
 
 //get results
 $results = $mysqli->query($query) or die($mysqli->error . __LINE__);

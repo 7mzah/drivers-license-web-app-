@@ -10,7 +10,7 @@ $number = (int) $_GET['n'];
  /*
   *   Get total question
   */
-$query = "SELECT * FROM `questions`";
+$query = "SELECT * FROM `easyquestions`";
 $results = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $total = $results->num_rows;
 
@@ -18,7 +18,7 @@ $total = $results->num_rows;
  *       Get question
  */
 
-$query = "SELECT * FROM `questions` WHERE  question_number = $number";
+$query = "SELECT * FROM `easyquestions` WHERE  question_number = $number";
 $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
 $question = $result->fetch_assoc(); // that is going to give us an associative array with our data that we requested that can be used dynamically in our app
@@ -28,7 +28,7 @@ $question = $result->fetch_assoc(); // that is going to give us an associative a
  *       Get choices
  */
 
-$query = "SELECT * FROM `choices` WHERE  question_number = $number";
+$query = "SELECT * FROM `easychoices` WHERE  question_number = $number";
 $choices = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
 
