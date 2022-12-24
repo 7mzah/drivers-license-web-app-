@@ -38,7 +38,7 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
                 <table>
 
 
-                    <?php while ($questions = $result->fetch_assoc() AND $answers = $choices->fetch_assoc()): ?>
+                    <?php while ($questions = $result->fetch_assoc() and $answers = $choices->fetch_assoc()): ?>
                     <tr>
                         <td>
                             <p>
@@ -46,15 +46,15 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
                             </p>
                         </td>
 
-                        
-                        
+
+
 
                     </tr>
                     <?php endwhile; ?>
 
 
 
-                   
+
 
 
 
