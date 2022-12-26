@@ -18,17 +18,29 @@
             <h2>Dynamic username</h2>
             <ul>
                 <li>
-                    <div class="dropdown"><i class="fa-solid fa-memo"></i>Practice Tests 
+                    <div class="dropdown"><i class="fa-solid fa-memo"></i>Theoretical Practice Tests
 
                         <div class="dropdown-content">
-                            <a href="../easytest/index.php"> Easy Test 
+                            <a href="../theoreticalPracticeTests/easytest/index.php"> Easy Test
                             </a>
-                            <a href="../moderatetest/index.php">Moderate Test</a>
-                            <a href="challengingTest/index.php">Challenging Test</a>
+                            <a href="../theoreticalPracticeTests/moderatetest/index.php">Moderate Test</a>
+                            <a href="../theoreticalPracticeTests/challengingtest/index.php">Challenging Test</a>
                         </div>
                     </div>
                 </li>
 
+
+                <li>
+                    <div class="dropdown"><i class="fa-solid fa-memo"></i>Road Signs Practice Tests
+
+                        <div class="dropdown-content">
+                            <a href="../theoreticalPracticeTests/easytest/index.php"> Easy Test
+                            </a>
+                            <a href="../theoreticalPracticeTests/moderatetest/index.php">Moderate Test</a>
+                            <a href="../theoreticalPracticeTests/challengingtest/index.php">Challenging Test</a>
+                        </div>
+                    </div>
+                </li>
 
 
 
