@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html lang="en">
 
 <head>
@@ -15,7 +16,10 @@
 
     <div class="wrapper">
         <div class="sidebar">
-            <h2>Dynamic username</h2>
+            <h2><?php
+
+            echo $_SESSION['username'];
+            ?></h2>
             <ul>
                 <li>
                     <div class="dropdown"><i class="fa-solid fa-memo"></i>Theoretical Practice Tests

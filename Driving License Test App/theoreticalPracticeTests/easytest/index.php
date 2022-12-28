@@ -1,4 +1,4 @@
-<?php include 'database.php'; ?>
+<?php include '../../database.php'; ?>
 <?php session_start(); ?>
 <?php $_SESSION['score'] = 0; ?>
 <?php

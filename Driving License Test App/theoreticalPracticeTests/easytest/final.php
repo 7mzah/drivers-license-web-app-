@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php include 'database.php' ?>
+<?php include '../../database.php' ?>
 <?php
 
 $query = "SELECT * FROM `easyquestions`";
