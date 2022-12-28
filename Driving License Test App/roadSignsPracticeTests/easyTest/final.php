@@ -2,10 +2,10 @@
 <?php include '../../database.php' ?>
 <?php
 
-$query = "SELECT * FROM `easyquestions`";
+$query = "SELECT * FROM `easysignquestions`";
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
-$queryChoice = "SELECT * FROM `easychoices` WHERE is_correct = 1";
+$queryChoice = "SELECT * FROM `easysignchoices` WHERE is_correct = 1";
 $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
 
@@ -23,7 +23,7 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 <body>
     <header>
         <div class="container">
-            <h1>Road Rules Test</h1>
+            <h1>Road Rules Signs Test</h1>
         </div>
     </header>
     <hr>
@@ -42,7 +42,7 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
                     <tr>
                         <td>
                             <p>
-                                <?php echo $questions['question_number'] . "." . " " . $questions['text_'] . " " . $answers['text_']; ?>
+                                <?php echo $questions['question_number'] . "." . " " . '<img src = "data:image;base64,' . base64_encode($questions['image']) . '" alt = "Image" style = "width:100px; height: 100px;">' . " " . $answers['text_']; ?>
                             </p>
                         </td>
 

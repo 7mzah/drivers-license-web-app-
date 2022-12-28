@@ -38,7 +38,7 @@
                     <div class="dropdown"><i class="fa-solid fa-memo"></i>Road Signs Practice Tests
 
                         <div class="dropdown-content">
-                            <a href="../theoreticalPracticeTests/easytest/index.php"> Easy Test
+                            <a href="../roadSignsPracticeTests/easyTest/index.php"> Easy Test
                             </a>
                             <a href="../theoreticalPracticeTests/moderatetest/index.php">Moderate Test</a>
                             <a href="../theoreticalPracticeTests/challengingtest/index.php">Challenging Test</a>

@@ -56,13 +56,13 @@ $choices = $mysqli->query($query) or die($mysqli->error . __LINE__);
             <div class="current">Question <?php echo $question['question_number'] ?>  </div>
             <p class="questions">
                 <?php
-                echo $question['text'];
+                echo $question['text_'];
                 ?>
             </p>
             <form action="process.php" method="post">
                 <ul class="choices">
                     <?php while ($row = $choices->fetch_assoc()): ?>
-                    <li><input type="radio" name="choice" value="<?php echo $row['id']; ?>"><?php echo $row['text']; ?>
+                    <li><input type="radio" name="choice" value="<?php echo $row['id']; ?>"><?php echo $row['text_']; ?>
                     </li>
                     <?php endwhile; ?>
 

@@ -9,13 +9,18 @@ if (
 
     $query = "SELECT * FROM `users` WHERE `username`='$u' and `password`='$p' ";
     $res = $mysqli->query($query);
-    $nbrows =$res->num_rows;
+    $nbrows = $res->num_rows;
+
     if ($nbrows == 1) {
         session_start();
         $_SESSION['isloggedin'] = 1;
         $_SESSION['username'] = $u;
         header("Location:userPage.php");
-    }  else {
+    } else if ($u = "admin" and $p = "admin") {
+        header("Location:../admin/adminDashboard.php");
+
+
+    } else {
         header("Location:index.php");
     }
 }

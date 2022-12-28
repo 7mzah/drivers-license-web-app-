@@ -2,10 +2,10 @@
 <?php include '../../database.php' ?>
 <?php
 
-$query = "SELECT * FROM `easyquestions`";
+$query = "SELECT * FROM `challengingquestions`";
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
-$queryChoice = "SELECT * FROM `easychoices` WHERE is_correct = 1";
+$queryChoice = "SELECT * FROM `challengingchoices` WHERE is_correct = 1";
 $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
 
@@ -30,7 +30,7 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
     <main>
         <div class="container">
-            <form action="../../login/userPage.php" method="post">
+            <form action="../../userPage/index.php" method="post">
                 <h2>Road Rules Test is over</h2> <!-- difficulty type(Easy, Medium, Hard) should be dynamic  -->
                 <p>Final Score:
                     <?php echo $_SESSION['score']; ?>
@@ -42,7 +42,7 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
                     <tr>
                         <td>
                             <p>
-                                <?php echo $questions['question_number'] . "." . " " . $questions['text_'] . " " . $answers['text_']; ?>
+                                <?php echo $questions['question_number'] . "." . " " . $questions['text'] . " " . $answers['text']; ?>
                             </p>
                         </td>
 
