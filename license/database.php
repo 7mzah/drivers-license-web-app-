@@ -1,9 +1,9 @@
 <?php
 //Create connection credentials
-$db_host = 'localhost';
-$db_name = 'DquizApp';
-$db_user = 'mamp';
-$db_pass = '';
+$db_host = '127.0.0.1';
+$db_name = 'test1';
+$db_user = 'homestead';
+$db_pass = 'secret';
 
 //create mysqpli object (object oriented way)
 $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
