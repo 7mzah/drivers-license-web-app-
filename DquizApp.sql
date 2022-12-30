@@ -262,6 +262,7 @@ ALTER TABLE `easychoices`
 -- Indexes for table `easyquestions`
 --
 ALTER TABLE `easyquestions`
+  MODIFY `question_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9,
   ADD PRIMARY KEY (`question_number`);
 
 --
