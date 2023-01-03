@@ -31,7 +31,7 @@ $time = $total * 0.5;
 
     <main>
         <div class="container">
-            <h2>Difficulty type: Easy</h2> <!-- difficulty type(Easy, Medium, Hard) should be dynamic  -->
+            <h2>Difficulty type: Easy</h2> 
             <ul>
                 <li><strong>Number of Questions: </strong>
                     <?php echo $total; ?>

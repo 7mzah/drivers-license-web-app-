@@ -1,6 +1,6 @@
 <?php
 
-require_once 'connection.php';
+require_once 'database.php';
 if(isset($_POST['username']) && !empty($_POST['username'])
         && isset($_POST['password']) && !empty($_POST['password']))
 {
@@ -8,17 +8,17 @@ if(isset($_POST['username']) && !empty($_POST['username'])
     $p=$_POST['password'];
     
     $query="SELECT * FROM `users` WHERE `username`='$u' and `password`='$p' ";
-    $res= mysqli_query($con, $query);
-    $nbrows= mysqli_num_rows($res);
+    $res= $mysqli->query($query);
+    $nbrows= $res->num_rows;
     if($nbrows==1)
     {
-        //session_start();
-        //$_SESSION['isloggedin']=1;
-        //$_SESSION['username']=$u;
-        header("Location:UserDashboard.php");
+        session_start();
+        $_SESSION['isloggedin']=1;
+        $_SESSION['username']=$u;
+        header("Location:user/UserDashboard.php");
     }
  else {
-     header("Location:Login.php");
+     header("Location:index.php");
  }
 }?>
 

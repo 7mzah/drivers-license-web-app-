@@ -30,8 +30,8 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
     <main>
         <div class="container">
-            <form action="../../login/userPage.php" method="post">
-                <h2>Road Rules Test is over</h2> <!-- difficulty type(Easy, Medium, Hard) should be dynamic  -->
+            <form action="../../user/UserDashboard.php" method="post">
+                <h2>Road Rules Test is over</h2> 
                 <p>Final Score:
                     <?php echo $_SESSION['score']; ?>
                 </p>
@@ -42,7 +42,7 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
                     <tr>
                         <td>
                             <p>
-                                <?php echo $questions['question_number'] . "." . " " . '<img src = "data:image;base64,' . base64_encode($questions['image']) . '" alt = "Image" style = "width:100px; height: 100px;">' . " " . $answers['text_']; ?>
+                                <?php echo $questions['question_number'] . "." . " " . '<img src = "data:image;base64,' . base64_encode($questions['image_']) . '" alt = "Image" style = "width:100px; height: 100px;">' . " " . $answers['text_']; ?>
                             </p>
                         </td>
 

@@ -1,8 +1,8 @@
 <?php
 //Create connection credentials
 $db_host = 'localhost';
-$db_name = 'DquizApp';
-$db_user = 'root';
+$db_name = 'quizApp';
+$db_user = 'mamp';
 $db_pass = '';
 
 //create mysqpli object (object oriented way)

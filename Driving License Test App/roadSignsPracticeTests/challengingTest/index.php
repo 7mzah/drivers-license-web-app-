@@ -5,7 +5,7 @@
 /*
  *Get the total number of questions
  */
-$query = "SELECT * FROM challengingquestions";
+$query = "SELECT * FROM challengingsignquestions";
 
 //get results
 $results = $mysqli->query($query) or die($mysqli->error . __LINE__);
@@ -31,7 +31,7 @@ $time = $total * 0.5;
 
     <main>
         <div class="container">
-            <h2>Difficulty type: Challenging</h2> <!-- difficulty type(Easy, Medium, Hard) should be dynamic  -->
+            <h2>Difficulty type: Challenging</h2> 
             <ul>
                 <li><strong>Number of Questions: </strong>
                     <?php echo $total; ?>

@@ -2,10 +2,10 @@
 <?php include '../../database.php' ?>
 <?php
 
-$query = "SELECT * FROM `challengingquestions`";
+$query = "SELECT * FROM `challengingsignquestions`";
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
-$queryChoice = "SELECT * FROM `challengingchoices` WHERE is_correct = 1";
+$queryChoice = "SELECT * FROM `challengingsignchoices` WHERE is_correct = 1";
 $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
 
@@ -30,8 +30,8 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
     <main>
         <div class="container">
-            <form action="../../userPage/index.php" method="post">
-                <h2>Road Rules Test is over</h2> <!-- difficulty type(Easy, Medium, Hard) should be dynamic  -->
+            <form action="../../user/UserDashboard.php" method="post">
+                <h2>Road Rules Test is over</h2> 
                 <p>Final Score:
                     <?php echo $_SESSION['score']; ?>
                 </p>
@@ -39,18 +39,18 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
 
                     <?php while ($questions = $result->fetch_assoc() and $answers = $choices->fetch_assoc()): ?>
-                    <tr>
-                        <td>
-                            <p>
-                                <?php echo $questions['question_number'] . "." . " " . $questions['text'] . " " . $answers['text']; ?>
-                            </p>
-                        </td>
+                        <tr>
+                            <td>
+                                <p>
+                                    <?php echo $questions['question_number'] . "." . " " . '<img src = "data:image;base64,' . base64_encode($questions['image_']) . '" alt = "Image" style = "width:100px; height: 100px;">' . " " . $answers['text_']; ?>
+                                </p>
+                            </td>
 
 
 
 
-                    </tr>
-                    <?php endwhile; ?>
+                        </tr>
+                        <?php endwhile; ?>
 
 
 

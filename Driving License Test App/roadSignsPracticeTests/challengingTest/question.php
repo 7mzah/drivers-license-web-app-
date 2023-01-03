@@ -10,7 +10,7 @@ $number = (int) $_GET['n'];
 /*
  *   Get total question
  */
-$query = "SELECT * FROM `challengingquestions`";
+$query = "SELECT * FROM `challengingsignquestions`";
 $results = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $total = $results->num_rows;
 
@@ -18,7 +18,7 @@ $total = $results->num_rows;
  *       Get question
  */
 
-$query = "SELECT * FROM `challengingquestions` WHERE  question_number = $number";
+$query = "SELECT * FROM `challengingsignquestions` WHERE  question_number = $number";
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
 $question = $result->fetch_assoc(); // that is going to give us an associative array with our data that we requested that can be used dynamically in our app
@@ -28,7 +28,7 @@ $question = $result->fetch_assoc(); // that is going to give us an associative a
  *       Get choices
  */
 
-$query = "SELECT * FROM `challengingchoices` WHERE  question_number = $number";
+$query = "SELECT * FROM `challengingsignchoices` WHERE  question_number = $number";
 $choices = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
 
@@ -56,13 +56,13 @@ $choices = $mysqli->query($query) or die($mysqli->error . __LINE__);
             <div class="current">Question <?php echo $question['question_number'] ?>  </div>
             <p class="questions">
                 <?php
-                echo $question['text'];
+                echo '<img src = "data:image;base64,' . base64_encode($question['image_']) . '" alt = "Image" style = "width:100px; height: 100px;">';
                 ?>
             </p>
             <form action="process.php" method="post">
                 <ul class="choices">
                     <?php while ($row = $choices->fetch_assoc()): ?>
-                    <li><input type="radio" name="choice" value="<?php echo $row['id']; ?>"><?php echo $row['text']; ?>
+                    <li><input type="radio" name="choice" value="<?php echo $row['id']; ?>"><?php echo $row['text_']; ?>
                     </li>
                     <?php endwhile; ?>
 

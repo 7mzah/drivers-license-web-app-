@@ -57,7 +57,7 @@ $choices = $mysqli->query($query) or die($mysqli->error . __LINE__);
             <p class="questions">
             <form action="process.php" method="post" enctype="multipart/form-data">
                 <?php
-                echo '<img src = "data:image;base64,' . base64_encode($question['image']) . '" alt = "Image" style = "width:100px; height: 100px;">';
+                echo '<img src = "data:image;base64,' . base64_encode($question['image_']) . '" alt = "Image" style = "width:100px; height: 100px;">';
                 ?>
                 </p>
 
