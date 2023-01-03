@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Dec 28, 2022 at 09:38 PM
--- Server version: 5.7.34
--- PHP Version: 7.4.21
+-- Host: 127.0.0.1
+-- Generation Time: Jan 03, 2023 at 10:45 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `DquizApp`
+-- Database: `quizapp`
 --
 
 -- --------------------------------------------------------
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `challengingchoices` (
   `id` int(11) NOT NULL,
   `question_number` int(11) NOT NULL,
-  `is_correct` tinyint(4) NOT NULL DEFAULT '0',
+  `is_correct` tinyint(4) NOT NULL DEFAULT 0,
   `text_` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -71,7 +71,7 @@ INSERT INTO `challengingquestions` (`question_number`, `text_`) VALUES
 CREATE TABLE `easychoices` (
   `id` int(11) NOT NULL,
   `question_number` int(11) NOT NULL,
-  `is_correct` tinyint(1) NOT NULL DEFAULT '0',
+  `is_correct` tinyint(1) NOT NULL DEFAULT 0,
   `text_` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -142,7 +142,7 @@ INSERT INTO `easyquestions` (`question_number`, `text_`) VALUES
 CREATE TABLE `easysignchoices` (
   `id` int(11) NOT NULL,
   `question_number` int(11) NOT NULL,
-  `is_correct` tinyint(4) NOT NULL DEFAULT '0',
+  `is_correct` tinyint(4) NOT NULL DEFAULT 0,
   `text_` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -183,7 +183,7 @@ INSERT INTO `easysignquestions` (`question_number`, `image`) VALUES
 CREATE TABLE `moderatechoices` (
   `id` int(11) NOT NULL,
   `question_number` int(11) NOT NULL,
-  `is_correct` tinyint(4) NOT NULL DEFAULT '0',
+  `is_correct` tinyint(4) NOT NULL DEFAULT 0,
   `text_` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -222,17 +222,27 @@ INSERT INTO `moderatequestions` (`question_number`, `text_`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `birthdate` date NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  `firstname` text NOT NULL,
+  `lastname` text NOT NULL,
+  `phoneNumber` int(8) NOT NULL,
+  `enrolled` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'testuser', 'testuserpass');
+INSERT INTO `users` (`username`, `password`, `email`, `birthdate`, `gender`, `firstname`, `lastname`, `phoneNumber`, `enrolled`) VALUES
+('aliaj', 'ali123', 'ali@gmail.com', '2006-03-26', 'M', 'ali', 'ajram', 73649374, 0),
+('miks', 'malak123', 'malak.ajram2016@hotmail.com', '2002-05-23', 'o', 'malak', 'ajram', 71055164, 0),
+('safa', 'safa123', 'safa@gmail.com', '2002-10-01', 'F', 'Safa', 'Halat', 48489823, 0),
+('sims', 'samar123', 'samar@gmail.com', '2002-05-18', 'F', 'samar', 'sharanek', 71055164, 0),
+('testuser', 'testuserpass', 'testuser@gmail.com', '2000-01-15', 'M', 'Test', 'User', 71055164, 0);
 
 --
 -- Indexes for dumped tables
@@ -291,12 +301,6 @@ ALTER TABLE `moderatequestions`
   ADD PRIMARY KEY (`question_number`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -323,12 +327,6 @@ ALTER TABLE `easysignchoices`
 --
 ALTER TABLE `moderatechoices`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
