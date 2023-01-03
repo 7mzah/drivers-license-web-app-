@@ -1,0 +1,228 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 27, 2022, 5:12:43 PM
+    Author     : user
+*/
+
+*{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;   
+}
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/road.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.banner1{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/road2.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+}
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.logo{
+    width: 400px;
+    cursor: pointer;
+   position:relative;
+   right: 100px;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+.content h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+.content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+span{
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+button:hover span{
+    width: 100%;
+}
+button:hover{
+    border: none;
+}
+
+/*footer{
+    background-color: rgba(0,0,0,0);
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}*/
+ .footer {
+    display: flex; /* make the footer a flex container */
+    justify-content: center; /* center the icons horizontally */
+  }
+
+  .icon {
+    width: 32px; /* set the width of the icon */
+    height: 32px; /* set the height of the icon */
+    margin: 0 8px; /* add some space between the icons */
+  }
+  .login-container {
+  width: 500px;
+  margin: auto;
+  background-color: transparent;
+  border: 1px solid #CCCCCC;
+  border-radius: 25px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px #CCCCCC;
+  position: absolute;
+  margin-right: 130px;
+  left: -50px;
+  right: 250px;
+  margin-bottom: 125px;
+  text-align: center;
+  bottom: 10px;
+  top: 150px;
+  transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;  /* Specify the duration and easing of the animations */
+  transform: translateY(0);  /* Specify the initial position */
+  box-shadow: 0 0 0 rgba(0,0,0,0);  /* Specify the initial shadow */
+}
+
+.login-container:hover {
+  transform: translateY(-10px);  /* Specify the final position */
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2);  /* Specify the final shadow */
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  font-family: Arial;
+  font-style: normal;
+  
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #CCCCCC;
+  border-radius: 25px;
+  color: white;
+  background-color: transparent;
+}
+
+#username {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: white;
+}
+#password {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: white;
+}
+
+#forget {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: white;
+}
+
+
+/*input[type="text"]:hover, input[type="password"]:hover {
+  border: 1px solid #00B200;
+}*/
+
+input[type="submit"] {
+  width: 100%;
+  background-color: transparent;
+  color: #FFFFFF;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 2px solid #009688;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #009688;
+}
+/*SignUp*/
