@@ -1,5 +1,5 @@
 <?php
-include '../database.php'
+include '../../database.php'
     ?>
 
 <?php
@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
     $choices[4] = $_POST['choice4'];
     $choices[5] = $_POST['choice5'];
 
-    $query = "INSERT INTO `challengingsignquestions`(question_number, image_) VALUES ('$question_number', '$question_image')";
+    $query = "INSERT INTO `easysignquestions`(question_number, image_) VALUES ('$question_number', '$question_image')";
     $run_query = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
     //validate the insert
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
                 }
 
                 //choice query
-                $query = "INSERT INTO `challengingsignchoices` (question_number, is_correct, text_) VALUES ('$question_number','$is_correct','$value')";
+                $query = "INSERT INTO `easysignchoices` (question_number, is_correct, text_) VALUES ('$question_number','$is_correct','$value')";
                 $run_query = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
                 if ($run_query) {
@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
 
 
         }
-        header("Location:addCSQ.php");
+        header("Location:addESQ.php");
         die();
     }
 
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 /*
  *   Get total question
  */
-$query = "SELECT * FROM `challengingsignquestions`";
+$query = "SELECT * FROM `easysignquestions`";
 $results = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $total = $results->num_rows;
 $next = $total + 1;
@@ -93,7 +93,7 @@ $next = $total + 1;
 
             ?>
 
-            <form action="addCSQ.php" method="POST" enctype="multipart/form-data">
+            <form action="addESQ.php" method="POST" enctype="multipart/form-data">
                 <p><label>Question Number:</label> <input type="number" value="<?php echo $next ?>"
                         name="question_number">
                 </p>

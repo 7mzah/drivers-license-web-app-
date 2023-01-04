@@ -16,7 +16,33 @@
             <ul class="child">
                 <li class="parent">Theoretical<span class="expand">»</span>
                     <ul class="child">
-                        <li><a href="addETQ.php">Easy</a></li>
+                        <li><a href="addQuestions/addETQ.php">Easy</a></li>
+                        <li><a href="addQuestions/addMTQ.php">Moderate</a></li>
+                        <li><a href="addQuestions/addCTQ.php">Challenging</a></li>
+                    </ul>
+
+                </li>
+                <li class="parent">Signs<span class="expand">»</span>
+                    <ul class="child">
+                        <li><a href="addQuestions/addESQ.php">Easy</a></li>
+                        <li><a href="addQuestions/addMSQ.php">Moderate</a></li>
+                        <li><a href="addQuestions/addCSQ.php">Challenging</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+
+
+
+        </li>
+    </ul>
+    <ul>
+        <li class="parent">Edit Questions
+            <ul class="child">
+                <li class="parent">Theoretical<span class="expand">»</span>
+                    <ul class="child">
+                        <li><a href="editQuestions/editETQ.php">Easy</a></li>
                         <li><a href="addMTQ.php">Moderate</a></li>
                         <li><a href="addCTQ.php">Challenging</a></li>
                     </ul>

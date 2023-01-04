@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 48 48" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<path d="M41.3568 12.3705L45.7613 7.347C45.7613 7.347 45.5812 1.72968 39.1007 2.16369C38.3662 2.94913 37.7709 3.58506 37.2883 4.09992C35.2238 6.30244 35.223 6.28952 35.223 6.28952L41.3568 12.3705Z" id="Fill"/>
+<path d="M32.7053 8.08485L38.9035 14.0817L25.04 28.5391L17.319 30.0058L18.4106 23.0999L32.7053 8.08485Z" id="Fill_2"/>
+</defs>
+<g id="Layer-1" vectornator:layerName="Layer 1">
+<path d="M1.6547 11.9166L1.67468 39.6967C1.67468 39.6967 1.39292 45.3424 7.96642 45.5016C14.5399 45.6609 35.6905 45.652 35.6905 45.652C35.6905 45.652 41.8633 45.998 41.6707 39.5608C41.4781 33.1236 41.6651 19.9861 41.6651 19.9861C41.6651 19.9861 39.9018 17.0633 37.7755 19.8953C37.7467 39.5028 37.7467 39.5028 37.7467 39.5028C37.7467 39.5028 37.7644 42.454 34.2316 42.1811C8.33107 42.323 8.34909 42.323 8.34909 42.323C8.34909 42.323 5.37391 42.6955 5.31298 39.0028C5.22583 12.7419 5.26252 12.3818 5.26252 12.3818C5.26252 12.3818 6.1363 9.64026 8.20232 9.45744C27.1172 9.3703 27.127 9.3703 27.127 9.3703C27.127 9.3703 28.7019 7.99688 26.9979 6.21885" fill="#000000" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+<path d="M27.3238 6.36753C16.7179 6.27742 9.32718 6.28587 8.03197 6.28091C6.73676 6.27596 1.64317 8.40969 1.64153 12.0084" fill="#000000" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+<path d="M35.0509 6.18835" fill="#000000" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+<g opacity="1" vectornator:blendMode="darken">
+<use fill="#000000" fill-rule="nonzero" stroke="none" xlink:href="#Fill"/>
+<mask height="12.2307" id="StrokeMask" maskUnits="userSpaceOnUse" width="12.5384" x="34.223" y="1.13977">
+<rect fill="#ffffff" height="12.2307" stroke="none" width="12.5384" x="34.223" y="1.13977"/>
+<use fill="#000000" fill-rule="evenodd" stroke="none" xlink:href="#Fill"/>
+</mask>
+<use fill="none" mask="url(#StrokeMask)" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2" xlink:href="#Fill"/>
+</g>
+<g opacity="1" vectornator:blendMode="darken">
+<use fill="#000000" fill-rule="nonzero" stroke="none" xlink:href="#Fill_2"/>
+<mask height="23.9209" id="StrokeMask_2" maskUnits="userSpaceOnUse" width="23.5845" x="16.319" y="7.08485">
+<rect fill="#ffffff" height="23.9209" stroke="none" width="23.5845" x="16.319" y="7.08485"/>
+<use fill="#000000" fill-rule="evenodd" stroke="none" xlink:href="#Fill_2"/>
+</mask>
+<use fill="none" mask="url(#StrokeMask_2)" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2" xlink:href="#Fill_2"/>
+</g>
+</g>
+</svg>
