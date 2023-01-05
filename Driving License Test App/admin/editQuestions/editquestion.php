@@ -17,7 +17,9 @@ if (!$questionres) {
     $nbrows = mysqli_num_rows($questionres);
     $questions = mysqli_fetch_assoc($questionres);
     $nbofanswers = $answerres->num_rows;
-    echo "<form method='POST' action='editprocess.php'>";
+    
+    $keys = array_keys($answers);
+    echo "<form method='POST' action='editprocess.php?$question_number'>";
     echo "<table border='5'>";
     echo "<tr>";
     echo "<td>question</td>";
@@ -26,10 +28,12 @@ if (!$questionres) {
     echo "<tr>";
     echo "<td><input type='text' name='question' value='$questions[text_]' ></td>";
     while ($answers = $answerres->fetch_assoc()):
-    echo "<td><input type='text' name='answer' value='$answers[text_]' ></td>";
+        $i = 1;
+    echo "<td><input type='text' name='choice$i' value='$answers[text_]' ></td>";
+        $i++;
+endwhile;
 
-
-    endwhile;
+    
 
     echo "</tr>";
     echo "<tr>";

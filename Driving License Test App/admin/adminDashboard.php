@@ -63,10 +63,63 @@
 
         </li>
     </ul>
+    <ul>
+
+        <li class="parent">Students
+            <ul class="child">
+                <li><a href="viewstudents.php">registered students</a><span class="expand">»</span>
+                </li>
+                <li><a href="addstudents.php">add students</a><span class="expand">»</span>
+
+                </li>
+
+            </ul>
+
+            <ul>
+                <li class="parent">Main exam
+                    <ul class="child">
+                        <li><a href="mainexam/viewquestions.php">View questions</a><span class="expand">»</span>
+                        </li>
+                        <li><a href="mainexam/addquestions.php">add questions</a><span class="expand">»</span>
+
+                        </li>
+
+                    </ul>
+                    <p>Publish main exam
+                    <form method = "POST" action = "ispublished.php">
+                        
+
+                        <input type="submit" name="submit" value="Publish">
+                        <input type="submit" name="conceal" value ="Conceal">
+                    </form>
+                    </p>
+                    <?php
+                    include '../database.php';
+
+                    $query = "SELECT * FROM `quizzes_table` WHERE id = 1";
+                    $res = $mysqli->query($query);
+                    $ispublished = $res->fetch_assoc();
+
+                    if ($ispublished['published'] == 1) {
+                        echo '<p>Main exam is published</p>';
+                    } else {
+
+                        echo '<p>Main exam is not published</p>';
+                    }
 
 
-
+                    ?>
 
 </body>
 
 </html>
+
+<?php
+/*include '../database.php';
+$query = "SELECT * FROM `users`";
+$res = $mysqli->query($query) or die($mysqli->error . __LINE__);
+if ($res) {
+$nbrows = $res->num_rows;
+echo '<p>Number of students is : ' . $nbrows . "</p>";
+}
+?>

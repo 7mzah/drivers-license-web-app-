@@ -1,0 +1,96 @@
+body {
+    font-family: arial;
+    font-size: 15px;
+    line-height: 1.6em;
+}
+
+li {
+    list-style: none;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 60%;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+header {
+
+    border-bottom: 3px #f4f4f4;
+
+}
+
+footer {
+    border-top: 3px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+main {
+    padding-bottom: 20px;
+}
+
+hr {
+    height: 1px;
+    background-color: #f4f4f4;
+    border: none;
+
+}
+
+a.start {
+    display: inline-block;
+    color: #666;
+    background: #f4f4f4;
+    border: 1px dotted #ccc;
+    padding: 6px 13px;
+}
+
+.current {
+    padding: 10px;
+    background: #f4f4f4;
+    border: #ccc dotted 1px;
+    margin: 20px 0 10px 0;
+}
+
+input.Nsubmit[type = submit]{
+    background-color: #f4f4f4;
+    font-weight: bold;
+    padding: 8px 16px;
+    margin-left: 35px;
+    border: none;
+    border-radius: 20;
+}
+
+label{
+display: inline-block;
+width: 180px;
+}
+
+input.Asubmit[type = submit]{
+    background-color: #f4f4f4;
+    font-weight: bold;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    margin-right: 50px;
+    border-radius: 20;
+}
+
+input[type='text']{
+    width: 97%;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px #ccc solid;
+}
+
+input[type='number']{
+    width: 50px;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px #ccc solid;
+}
