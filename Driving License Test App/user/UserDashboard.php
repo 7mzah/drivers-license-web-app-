@@ -27,6 +27,7 @@ echo '</h2>';
 <p><a href="../roadSignsPracticeTests/easyTest/index.php">Easy signs practice test</a></p>
 <p><a href="../roadSignsPracticeTests/moderateTest/index.php">Moderate signs practice test</a></p>
 <p><a href="../roadSignsPracticeTests/challengingTest/index.php">Challenging signs practice test</a></p>
+<p><a href="edituser.php">Edit details</a></p>
 <?php
 
 $userid = $_SESSION['id'];
@@ -61,11 +62,14 @@ if ($ispublished['published'] == 1 and $takenexam['taken_exam']==0) {
 
 
 
+
 ?>
+<p><a href="changepass.php">Change password</a></p>
 
 
-
-
+<form action="logout.php" method="post">
+<input type="submit" value="Logout" name= "logout">
+</form>
 
     
 </body>

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'database.php';
+include 'database.php';
 if(isset($_POST['username']) && !empty($_POST['username'])
         && isset($_POST['password']) && !empty($_POST['password']))
 {
@@ -19,6 +19,7 @@ if(isset($_POST['username']) && !empty($_POST['username'])
         $_SESSION['username']=$u;
         $_SESSION['id'] = $userid;
         header("Location:user/UserDashboard.php");
+        
     }
  else {
      header("Location:index.php");

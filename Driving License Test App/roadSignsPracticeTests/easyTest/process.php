@@ -11,6 +11,7 @@ if ($_POST) {
     $Qnumber = $_POST['number']; //question number
     $selected_choice = $_POST['choice'];
     $next = $Qnumber + 1;
+    $_SESSION['question_number'] = $Qnumber;
     
 
 }

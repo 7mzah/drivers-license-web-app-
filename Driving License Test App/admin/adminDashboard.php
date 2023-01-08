@@ -67,9 +67,9 @@
 
         <li class="parent">Students
             <ul class="child">
-                <li><a href="viewstudents.php">registered students</a><span class="expand">»</span>
+                <li><a href="viewstudents.php">registered students</a>
                 </li>
-                <li><a href="addstudents.php">add students</a><span class="expand">»</span>
+                <li><a href="addstudents.php">add students</a>
 
                 </li>
 
@@ -77,10 +77,10 @@
 
             <ul>
                 <li class="parent">Main exam
-                    <ul class="child">
-                        <li><a href="mainexam/viewquestions.php">View questions</a><span class="expand">»</span>
+                    <ul class=child>
+                        <li><a href="mainexam/viewquestions.php">View questions</a>
                         </li>
-                        <li><a href="mainexam/addquestions.php">add questions</a><span class="expand">»</span>
+                        <li><a href="mainexam/addquestions.php">add questions</a>
 
                         </li>
 
@@ -115,7 +115,7 @@
 </html>
 
 <?php
-/*include '../database.php';
+include '../database.php';
 $query = "SELECT * FROM `users`";
 $res = $mysqli->query($query) or die($mysqli->error . __LINE__);
 if ($res) {

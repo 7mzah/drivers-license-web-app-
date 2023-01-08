@@ -1,38 +1,14 @@
 <?php include '../../../database.php'; ?>
-<?php session_start(); ?>
+<?php session_start(); 
+
+if($_SESSION['istaken']==1){
+
+    header("Location: ../../../user/UserDashboard.php");
+
+}?>
 
 
-<?php
-//Set question number
-$number = (int) $_GET['n'];
 
-
-/*
- *   Get total question
- */
-$query = "SELECT * FROM `mainexamquestions`";
-$results = $mysqli->query($query) or die($mysqli->error . __LINE__);
-$total = $results->num_rows;
-
-/*
- *       Get question
- */
-
-$query = "SELECT * FROM `mainexamquestions` WHERE  question_number = $number";
-$result = $mysqli->query($query) or die($mysqli->error . __LINE__);
-
-$question = $result->fetch_assoc(); // that is going to give us an associative array with our data that we requested that can be used dynamically in our app
-
-
-/*
- *       Get choices
- */
-
-$query = "SELECT * FROM `mainexamchoices` WHERE  question_number = $number";
-$choices = $mysqli->query($query) or die($mysqli->error . __LINE__);
-
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -52,35 +28,39 @@ $choices = $mysqli->query($query) or die($mysqli->error . __LINE__);
     <hr>
 
     <main>
-        <div class="container">
-            <div class="current">Question <?php echo $question['question_number'] ?> </div>
-            <p class="questions">
-                <?php
-                $image = $question['image_'];
-                if (empty($image)) {
-                    echo $question['text_'];
-                } else {
-                    echo '<p><img src = "data:image;base64,' . base64_encode($question['image_']) . '" alt = "Image" style = "width:100px; height: 100px;"></p>';
-                    echo $question['text_'];
-
-                }
-
+        <form id = "myform" action="process.php" method="post" enctype="multipart/form-data">
+            <?php
+            $questions = mysqli_query($mysqli, "SELECT * FROM mainexamquestions");
+            while ($question = mysqli_fetch_assoc($questions)) {
+                $choices = mysqli_query($mysqli, "SELECT * FROM mainexamchoices WHERE question_number = {$question['question_number']}");
                 ?>
-            </p>
-            <form action="process.php" method="post">
-                <ul class="choices">
-                    <?php while ($row = $choices->fetch_assoc()): ?>
-                        <li><input type="radio" name="choice" value="<?php echo $row['id']; ?>">
-                            <?php echo $row['text_']; ?>
-                        </li>
-                        <?php endwhile; ?>
+                <div>
+                    <div class="current">Question <?php echo $question['question_number'] ?> </div>
+                    <p class="questions">
+                        <?php
+                        $image = $question['image_'];
+                        if (empty($image)) {
+                            echo $question['text_'];
+                        } else {
+                            echo '<p><img src = "data:image;base64,' . base64_encode($question['image_']) . '" alt = "Image" style = "width:100px; height: 100px;"></p>';
+                            echo $question['questiontext_'];
 
+                        }
 
+                        ?>
+                    </p>
 
-                </ul>
+                    <ul class="choices">
+                        <?php while ($choice = mysqli_fetch_assoc($choices)) { ?>
+                            <li><input type="radio" name="choices[<?php echo $question['question_number']; ?>][]"
+                                    value="<?php echo $choice['id']; ?>">
+                                <?php echo $choice['choicetext_']; ?>
+                            </li>
+                            <?php } ?>
+                    </ul>
+                    <?php } ?>
                 <input name="submit" type="submit" value="Submit" class="Nsubmit">
-                <input type="hidden" name="number" value="<?php echo $number; ?>">
-            </form>
+        </form>
 
         </div>
     </main>
@@ -93,20 +73,47 @@ $choices = $mysqli->query($query) or die($mysqli->error . __LINE__);
     </footer>
 </body>
 <div id=timer></div>
-<script type="text/javascript">
-    const startingMinutes = <?php echo $total * 0.5 ?>;
-    let time = startingMinutes * 60;
-    const countdownEL = document.getElementById('timer');
-
-    setInterval(updateCountdown, 1000);
-
-    function updateCountdown() {
-        const minutes = Math.floor(time / 60);
-        let seconds = time % 60;
-
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        countdownEL.innerHTML = `${minutes}:${seconds}`;
-        time--;
-    }</script>
 
 </html>
+
+<!-- Get the timer information from the server using an AJAX request -->
+<script>
+
+    // Make an AJAX request to get the timer information
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // Parse the response
+            var response = JSON.parse(this.responseText);
+            var time_start = Number(response.time_start) * 1000;
+            var timeLimit = Number(response.time_limit) * 1000;
+
+
+            // Calculate the time when the timer should expire
+            var timeExpire = time_start + timeLimit;
+
+            // Update the timer every 1000 milliseconds (1 second)
+            setInterval(function () {
+                // Calculate the time remaining in minutes and seconds
+                var timeRemaining = (timeExpire - Date.now());
+                var minutes = Math.floor(timeRemaining / 60000 % 60);
+                var seconds = Math.floor(timeRemaining /1000 % 60);
+
+                // Display the timer
+                document.getElementById("timer").innerHTML = `${minutes}:${seconds}`;
+               
+
+
+                // Check if the time has expired
+                if (timeRemaining < 0) {
+                    
+                    // Time has expired, redirect the user to a new page
+                    document.getElementsByName('submit')[0].click();
+                   
+                }
+            }, 1000);
+        }
+    };
+    xhr.open("GET", "get_timer.php", true);
+    xhr.send();
+</script>

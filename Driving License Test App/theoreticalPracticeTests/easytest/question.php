@@ -84,19 +84,5 @@ $choices = $mysqli->query($query) or die($mysqli->error . __LINE__);
     </footer>
 </body>
 <div id=timer></div>
-        <script type="text/javascript">
-            const startingMinutes = <?php echo $total*0.5?>;
-            let time = startingMinutes * 60;
-            const countdownEL = document.getElementById('timer');
-
-            setInterval(updateCountdown, 1000);
-
-            function updateCountdown() {
-                const minutes = Math.floor(time / 60);
-                let seconds = time % 60;
-
-                seconds = seconds < 10 ? '0' + seconds : seconds;
-                countdownEL.innerHTML = `${minutes}:${seconds}`;
-                time--;
-            }</script>
+      
 </html>

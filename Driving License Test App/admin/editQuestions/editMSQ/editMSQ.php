@@ -4,7 +4,7 @@ session_start();
     header("Location:../../index.php");
 } else {*/
 
-    include '../../database.php';
+    include 'database.php';
 
     ?>
     <!--create a menu of options -->
@@ -30,9 +30,9 @@ session_start();
 
     </html>
     <?php
-    $answersquery = "SELECT * FROM `easychoices` WHERE is_correct = 1";
+    $answersquery = "SELECT * FROM `moderatesignchoices` WHERE is_correct = 1";
     $answersqueryrun = $mysqli->query($answersquery);
-    $questionsquery = "SELECT * FROM `easyquestions`";
+    $questionsquery = "SELECT * FROM `moderatesignquestions`";
     $questionsqueryrun = mysqli_query($mysqli,$questionsquery);
     if (!$questionsqueryrun) {
         die("Query failed: " . mysqli_error());
@@ -51,7 +51,7 @@ session_start();
             echo "<tr>";
             $questions = $questionsqueryrun->fetch_assoc();
             $answers = $answersqueryrun->fetch_assoc();
-            echo "<td>$questions[text_]</td>";
+            echo "<td>". '<img src = "data:image;base64,' . base64_encode($questions['image_']) . '" alt = "Image" style = "width:100px; height: 100px;">'."</td>";
             echo "<td>$answers[text_]</td>";
             echo "<td><a href='editquestion.php?question_number=$questions[question_number]'><img src='edit.svg' alt='edit'/></a></td>";
             echo "<td><a href='deletequestion.php?question_number=$questions[question_number]'><img src='delete.svg' alt='delete'/></a></td>";

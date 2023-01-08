@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+$_SESSION['istaken'] = 1;
+?>
 <?php include '../../../database.php' ?>
 <?php
 
@@ -8,13 +10,17 @@ $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $queryChoice = "SELECT * FROM `mainexamchoices` WHERE is_correct = 1";
 $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
-$score = $_SESSION['score'];
+$score = $_GET['score'] = null? 0 : $_GET['score'];
 $id = $_SESSION['id'];
 $query = "INSERT INTO `user_status`(id, score, taken_exam) VALUES ('$id','$score', 1)";
 $res = $mysqli->query($query);
 if($res){
     
 }
+
+$user_id = $_SESSION['id'];
+$query = "DELETE FROM `timers` WHERE `user_id` = '$user_id'";
+$run = $mysqli->query($query);
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +45,7 @@ if($res){
             <form action="../../../user/UserDashboard.php" method="post">
                 <h2>Road Rules Test is over</h2> <!-- difficulty type(Easy, Medium, Hard) should be dynamic  -->
                 <p>Final Score:
-                    <?php echo $_SESSION['score']; ?>
+                    <?php echo $score; ?>
                 </p>
                 <table>
 

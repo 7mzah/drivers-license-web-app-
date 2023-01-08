@@ -1,6 +1,9 @@
 <?php include '../../../database.php'; ?>
 <?php session_start(); ?>
-<?php $_SESSION['score'] = 0; ?>
+<?php
+$_SESSION['score'] = 0;
+$_SESSION['istaken'] = 0;
+?>
 <?php
 /*
  *Get the total number of questions
@@ -10,7 +13,7 @@ $query = "SELECT * FROM mainexamquestions";
 //get results
 $results = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $total = $results->num_rows;
-$time = $total * 0.5;
+$time = $total * 0.25 ;
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +46,7 @@ $time = $total * 0.5;
 
 
             </ul>
-            <a href="question.php?n=1" class="start">Start Test</a>
+            <a href="question.php?" class="start">Start Test</a>
         </div>
     </main>
     <hr>

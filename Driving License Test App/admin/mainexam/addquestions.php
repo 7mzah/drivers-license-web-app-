@@ -1,5 +1,5 @@
 <?php
-include '../../database.php'
+include 'database.php'
     ?>
 
 <?php
@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     $choices[4] = $_POST['choice4'];
     $choices[5] = $_POST['choice5'];
 
-    $imagequery = "INSERT INTO `mainexamquestions`(question_number, image_,text_,quiz_id) VALUES ('$question_number', '$question_image','$question_text', 1)";
+    $imagequery = "INSERT INTO `mainexamquestions`(question_number, image_,questiontext_,quiz_id) VALUES ('$question_number', '$question_image','$question_text', 1)";
     $runimage_query = $mysqli->query($imagequery) or die($mysqli->error . __LINE__);
     
 
@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
                 }
 
                 //choice query
-                $query = "INSERT INTO `mainexamchoices` (question_number, is_correct, text_) VALUES ('$question_number','$is_correct','$value')";
+                $query = "INSERT INTO `mainexamchoices` (question_number, is_correct, choicetext_) VALUES ('$question_number','$is_correct','$value')";
                 $run_query = $mysqli->query($query) or die($mysqli->error . __LINE__);
 
                 if ($run_query) {

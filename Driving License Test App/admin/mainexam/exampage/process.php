@@ -1,52 +1,19 @@
-<?php include '../../../database.php' ?>
-<?php session_start(); ?>
-
 <?php
-//Check to see if score is set
-if (!isset($_SESSION['score'])) {
-    $_SESSION['score'] = 0;
- }
+// Connect to the database
+include '../../../database.php';
 
-if ($_POST) {
-    $Qnumber = $_POST['number']; //question number
-    $selected_choice = $_POST['choice'];
-    $next = $Qnumber + 1;
-    
-
+$score = 0;
+foreach ($_POST['choices'] as $question_number => $choice_ids) {
+    $correct_choices = mysqli_query($mysqli, "SELECT * FROM mainexamchoices WHERE question_number = {$question_number} AND is_correct = 1");
+    $correct_choice_ids = [];
+    while ($correct_choice = mysqli_fetch_assoc($correct_choices)) {
+        $correct_choice_ids[] = $correct_choice['id'];
+    }
+    if ($choice_ids == $correct_choice_ids) {
+        $score++;
+    }
 }
 
-
-/*
- *   Get total question
- */
-
-$query = "SELECT * FROM `mainexamquestions`";
-$results = $mysqli->query($query) or die($mysqli->error . __LINE__);
-$total = $results->num_rows;
-
-/*
- *   Get correct choice
- */
-
-$query = "SELECT * FROM `mainexamchoices` WHERE question_number = $Qnumber AND is_correct = 1";
-$result = $mysqli->query($query) or die($mysqli->error . __LINE__);
-
-$row = $result->fetch_assoc();
-
-$correct_choice = $row['id'];
-
-if ($correct_choice == $selected_choice) {
-
-    $_SESSION['score']++;
-
-}
-
-if ($Qnumber == $total) {
-
-    header("Location: final.php");
-    
-
-} else {
-    header("Location: question.php?n=$next");
-}
-
+// Redirect to the results page
+header("Location: final.php?score={$score}");
+exit;
