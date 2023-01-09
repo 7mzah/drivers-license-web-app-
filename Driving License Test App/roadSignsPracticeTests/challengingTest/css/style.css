@@ -17,55 +17,122 @@ a {
     width: 60%;
     margin: 0 auto;
     overflow: auto;
+    border: 6px;
+    
 }
+
+.TestOver{
+    font-size: 30px;
+    margin-left: 225px;
+    color: white;
+}
+
+p{
+    font-size:25px;
+    color: white;
+}
+
 
 header {
-
+text-align: center;
     border-bottom: 3px #f4f4f4;
+    
+    color: #ffffff;
+    border-radius: 10px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.74),rgba(0,0,0,0.5)),url('background\ for\ tests\ 2.jpg');
 
 }
+
+.questBox {
+    width: 500px;
+    margin: auto;
+    background-color: transparent;
+    border: 1px solid  #009688;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px #CCCCCC;
+    position: absolute;
+    margin-right: 130px;
+    left: -50px;
+    right: 250px;
+    margin-bottom: 125px;
+    text-align:center;
+    bottom: 50px;
+    top: 200px;
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;  /* Specify the duration and easing of the animations */
+    transform: translateY(0);  /* Specify the initial position */
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);  /* Specify the initial shadow */
+    color:rgb(255, 255, 255);
+    background-color: rgba(250, 250, 250, 0.25);
+    
+  }
+  .questBox:hover {
+    transform: translateY(-10px);  /* Specify the final position */
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);  /* Specify the final shadow */
+  }
+
 
 footer {
     border-top: 3px;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 3px;
+    color: #009688;
 }
 
 main {
-    padding-bottom: 20px;
+    border-radius: 10px;
+    height: 200px;
+    padding-bottom: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.74),rgba(0,0,0,0.5)),url('background\ for\ tests\ 2.jpg');
+    background-size: 100%;
 }
 
 hr {
-    height: 1px;
-    background-color: #f4f4f4;
+    height:0em;
+    background-color: #ffffff;
     border: none;
 
 }
 
-a.start {
-    display: inline-block;
-    color: #666;
-    background: #f4f4f4;
-    border: 1px dotted #ccc;
-    padding: 6px 13px;
+.start{
+    width: 30%;
+    background-color: #009688;
+    color:#ffffff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 2px solid #009688;
+    border-radius: 25px;
+    cursor: pointer;
 }
+
+
+
 
 .current {
     padding: 10px;
-    background: #f4f4f4;
-    border: #ccc dotted 1px;
+    padding-left: 20px;
+    background: #009688;
+    border: #009688 1px;
+    border-radius: 25px;
     margin: 20px 0 10px 0;
+    color: white;
+    font-size: 20px;
 }
 
 input.Nsubmit[type = submit]{
-    background-color: #f4f4f4;
-    font-weight: bold;
-    padding: 8px 16px;
-    margin-left: 35px;
-    border: none;
-    border-radius: 20;
-}
+    width: 20%;
+    background-color: transparent;
+    color:#ffffff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    margin-left: 295px;
+    border: 2px solid #009688;
+    border-radius: 25px;
+    cursor: pointer;}
 
+    input.Nsubmit[type = submit]:hover{
+        background-color: #009688;
+    }
 label{
 display: inline-block;
 width: 180px;
@@ -94,3 +161,48 @@ input[type='number']{
     border-radius: 5px;
     border: 1px #ccc solid;
 }
+
+.choices{
+    color: #ffffff;
+    font-size: 20px;
+    border: 2px;
+    border-color: #009688;
+    border-radius: 25px;
+    padding-left: 20px;
+}
+
+.text{
+    border: 2px;
+    border-color: #009688;
+    border-radius: 25px;
+    padding-left: 20px;
+}
+.picture{
+    margin-left: 325px;
+}
+
+.proceed{
+    width: 20%;
+    background-color: transparent;
+    color:#ffffff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    margin-left: 295px;
+    border: 2px solid #009688;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.proceed:hover{
+        background-color: #009688;
+    }
+    main {
+        height:fit-content;
+        border-radius: 10px;
+       
+        padding-bottom: 400px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.74),rgba(0,0,0,0.5)),url('background\ for\ tests\ 2.jpg');
+        
+    }
+
+
+

@@ -12,7 +12,7 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
 $score = $_GET['score'] = null? 0 : $_GET['score'];
 $id = $_SESSION['id'];
-$query = "INSERT INTO `user_status`(id, score, taken_exam) VALUES ('$id','$score', 1)";
+$query = "UPDATE `user_status` SET `score` = $score, `taken_exam` = 1 WHERE `id` = $id";
 $res = $mysqli->query($query);
 if($res){
     
@@ -51,16 +51,16 @@ $run = $mysqli->query($query);
 
 
                     <?php while ($questions = $result->fetch_assoc() and $answers = $choices->fetch_assoc()): ?>
-
+                        
                         <tr>
                             <td>
                                 <p>
                                     <?php
                                     $image = $questions['image_'];
                                     if (empty($image)) {
-                                        echo $questions['question_number'] . "." . " " . $questions['text_'] . " " . $answers['text_'];
+                                        echo $questions['question_number'] . "." . " " . $questions['questiontext_'] . " " . $answers['choicetext_'];
                                     } else {
-                                        echo $questions['question_number'] . "." . " " . '<img src = "data:image;base64,' . base64_encode($questions['image_']) . '" alt = "Image" style = "width:100px; height: 100px;">' . " " . $answers['text_'];
+                                        echo $questions['question_number'] . "." . " " . '<img src = "data:image;base64,' . base64_encode($questions['image_']) . '" alt = "Image" style = "width:100px; height: 100px;">' . " " . $answers['choicetext_'];
                                     }
                                     ?>
                                 </p>

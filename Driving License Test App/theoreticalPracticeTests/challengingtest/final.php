@@ -31,7 +31,7 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
     <main>
         <div class="container">
             <form action="../../user/UserDashboard.php" method="post">
-                <h2>Road Rules Test is over</h2> <!-- difficulty type(Easy, Medium, Hard) should be dynamic  -->
+                <h2 class="TestOver">Road Rules Test is over</h2> <!-- difficulty type(Easy, Medium, Hard) should be dynamic  -->
                 <p>Final Score:
                     <?php echo $_SESSION['score']; ?>
                 </p>
@@ -59,7 +59,7 @@ $choices = $mysqli->query($queryChoice) or die($mysqli->error . __LINE__);
 
 
                 </table>
-                <input type="submit" name="proceed" value="Proceed">
+                <input class="proceed" type="submit" name="proceed" value="Proceed">
             </form>
 
 

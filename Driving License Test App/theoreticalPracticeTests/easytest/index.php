@@ -31,6 +31,7 @@ $time = $total * 0.5;
 
     <main>
         <div class="container">
+        <div class="questBox">
             <h2>Difficulty type: Easy</h2> 
             <ul>
                 <li><strong>Number of Questions: </strong>
@@ -44,6 +45,7 @@ $time = $total * 0.5;
 
             </ul>
             <a href="question.php?n=1" class="start">Start Test</a>
+        </div>
         </div>
     </main>
     <hr>

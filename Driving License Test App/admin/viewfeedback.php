@@ -1,3 +1,5 @@
+
+
 <html lang="en">
 
 <head>
@@ -36,8 +38,40 @@
 <div class = "content" >
 
 
+<?php
+include '../database.php';
+$feedbacks = mysqli_query($mysqli,"SELECT * FROM `feedbacks`");
+if (mysqli_num_rows($feedbacks) > 0) {
+    // Create the table
+    echo '<table border = "1">';
+    echo '<tr>';
+    echo '<th>User name</th>';
+    echo '<th>Feedback</th>';
+    echo '</tr>';
 
+    // Loop through the results
+    while ($row = mysqli_fetch_assoc($feedbacks)) {
+        // Display the user and score
+        echo '<tr>';
+        echo '<td>' . $row['username'] . '</td>';
+        echo '<td>' . $row['feedback'] . '</td>';
+        
+        echo '</tr>';
+    }
+    // Close the table
+    echo '</table>';
+} else {
+    // No results were found
+    echo 'No Feedbacks were found.';
+}
+
+
+
+?>
 </div>
 </body>
 
 </html>
+
+
+

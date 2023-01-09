@@ -54,11 +54,13 @@ $choices = $mysqli->query($query) or die($mysqli->error . __LINE__);
     <main>
         <div class="container">
             <div class="current">Question <?php echo $question['question_number'] ?>  </div>
+            <div class="picture">
             <p class="questions">
                 <?php
                 echo $question['text_'];
                 ?>
             </p>
+            </div>
             <form action="process.php" method="post">
                 <ul class="choices">
                     <?php while ($row = $choices->fetch_assoc()): ?>
