@@ -63,21 +63,20 @@ if($number == $question_number){
     <main>
         <div class="container">
             <div class="current">Question <?php echo $question['question_number'] ?> </div>
+            <div class="picture">
             <p class="questions">
             <form action="process.php" method="post" enctype="multipart/form-data">
                 <?php
                 echo '<img src = "data:image;base64,' . base64_encode($question['image_']) . '" alt = "Image" style = "width:100px; height: 100px;">';
                 ?>
                 </p>
-
+</div>
                 <ul class="choices">
                     <?php while ($row = $choices->fetch_assoc()): ?>
                         <li><input type="radio" name="choice" value="<?php echo $row['id']; ?>">
                             <?php echo $row['text_']; ?>
                         </li>
                         <?php endwhile; ?>
-
-
 
                 </ul>
                 <input name="submit" type="submit" value="Submit" class="Nsubmit">
@@ -94,16 +93,5 @@ if($number == $question_number){
         </div>
     </footer>
 </body>
-<div id=timer></div>
-<div id=timenow></div>
-<div id=expire></div>
-
-
-
-
-
-
-
-
 
 </html>
